@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "./dice";
+
+// The service definiton.
+service Tutorial {
+    // Ping rpc
+    rpc Ping (Empty) returns (Pong) {}
+
+    // RollDice rpc
+    rpc RollDice (RollDiceRequest) returns (RollDiceResponse) {}
+}
+
+message Empty {
+
+}
+message Pong {
+    string message = 1;
+}
+
+// the request message containing coming request
+message RollDiceRequest {
+    int32 num = 1;
+}
+
+// The response message containing coming response data
+message RollDiceResponse {
+   repeated int32 dice = 1;
+}
